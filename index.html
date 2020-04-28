@@ -23,6 +23,10 @@
     <meta name="twitter:image" content="https://1km.geomatico.es/img/1km.png" />
     <meta name="twitter:card" content="summary" />
 
+    <!--Calling bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
         html, body {
@@ -190,14 +194,32 @@
         }
         .dismiss {
             font-family: 'Roboto', sans-serif;
-            display: block;
+            width: 100%;
+            margin-right: 0;
+            margin-left: auto;
+            margin-top: 10px;
+            border: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;
+            background-color: black;
+            border-radius: 6px;
+            padding: 8px 15px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .recomendations {
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
             margin-right: 0;
             margin-left: auto;
             border: 0;
             background: none;
             box-shadow: none;
             border-radius: 0px;
-            background-color: black;
+            background-color: rgb(17, 150, 238);
             border-radius: 6px;
             padding: 8px 15px;
             color: #fff;
@@ -242,23 +264,58 @@
         </ul>
         <div class="desc">Haz clic sobre el mapa o utilizar el buscador y visualiza hasta dónde poder caminar
             durante la fase de desconfinamiento recreativo(por una hora diaria) por la crisis del COVID-19 en Argentina.
-          <p>La aplicación 1km ha sido desarrollada por <a href="http://geomatico.es" target="_blank">geomatico</a>.
+          <p>La aplicación "¿Hasta Donde Salgo?" ha sido desarrollada por <a href="https://matelab.com.ar" target="_blank">Matelab</a>.
             Cartografía y buscador gentileza de <a href="https://mapbox.com" target="_blank">Mapbox</a>.</p>
           <p class="cookie-notification">No explotamos tu información personal,
               tu posición no se transmite en ningún caso. Sólo usamos cookies técnicas.
-              Es <a href="https://github.com/geomatico/1km" target="_blank">código libre</a>.</p>
-          <div class="legal">
+              Es <a href="https://github.com/matelab/hastaDondeSalgo" target="_blank">código libre</a>.</p>
+          <!--<div class="legal">
             <a href="http://geomati.co/cookies_1km.html" target="_blank">política de cookies</a>
             <span> | </span>
             <a href="http://geomati.co/privacidad_1km.html" target="_blank">política de privacidad</a>
-          </div>
+          </div>-->
+          <button class="recomendations" data-toggle="modal" data-target="#recomendaciones">Recomendaciones</button>
           <button class="dismiss" onclick="document.getElementById('openSidebarMenu').checked = false;">Aceptar</button>
         </div>
-        <a href='http://geomatico.es' target='_blank'><img class='logo' src='img/logo.svg'></a>
+        <a href='https://matelab.com.ar' target='_blank'><img class='logo' src='img/logo.svg'></a>
     </div>
     <div id='center' class="main center">
         <div id="map"></div>
     </div>
+
+    <!--Modal recomendaciones-->
+    <div class="modal fade" id="recomendaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="recomendaciones">¡Recomendaciones a tener en cuenta!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Al momento de salir a la calle para usar tu hora de esparcimiento dentro del diametro permitido de 500 metros, es importante tener en cuenta las siguientes recomendaciones:
+                <ul>
+                    <li>Llevar siempre tapabocas(dejar los barbijos para el personal de salud)</li>
+                    <br>
+                    <li>Si estas dentro de alguno grupo de riesgo(problemas cardiacos, pulmonares, enfermedades cronicas y mayores de 60 años), por favor, quedate en casa, es por tu bien.</li>
+                    <br>
+                    <li>Mantener distancia social(1.5 metros)</li>
+                    <br>
+                    <li>Recorda que la hora de esparcimiento <b>NO ES PARA REALIZAR ACTIVIDAD FISICA DE NINGÚN TIPO</b></li>
+                    <br>
+                    <li>Llevar alcohol en gel y si te sentis inseguro, guantes de latex</li>
+                    <br>
+                    <li>Si sentis alguno de los sintomas, por favor, ¡llama medico!</li>
+                </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164546189-1"></script>
     <script>
@@ -267,5 +324,9 @@
         gtag('js', new Date());
         gtag('config', 'UA-164546189-1');
     </script>
+    <!--Calling Jquery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
